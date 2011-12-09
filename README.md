@@ -1,5 +1,5 @@
-Quick Database Check
-====================
+Registration Anywhere
+=====================
 A concrete5 addon to place a registration form as a block anyone on your site.
 
 Installation
