@@ -1,6 +1,6 @@
 Registration Anywhere
 =====================
-A concrete5 addon to place a registration form as a block anyone on your site.
+A concrete5 addon to place a registration form as a block anywhere on your site.
 
 Installation
 ------------
