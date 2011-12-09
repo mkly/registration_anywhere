@@ -1,0 +1,8 @@
+1.0 Nov, 2011:
+  - Initial Release
+1.1 Nov, 2011:
+  - Corrected some errors in controller.php
+1.2 Nov, 2011:
+  - Modified on_page_view() to suppress attribute form output
+  - Added addRegistrationAnywhereHeaderItems() for use in
+    themes that include block via global scrapbook
