@@ -1,3 +1,4 @@
+<?php defined('C5_EXECUTE') or die('Access Denied.'); ?>
 <script type="text/javascript" charset="utf-8">
 	$(function() {
 		set_form_title_display();
