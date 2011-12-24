@@ -5,7 +5,7 @@ class RegistrationAnywhereBlockController extends BlockController {
 
   protected $btTable = 'btRegistrationAnywhere';
   protected $btInterfaceWidth = "350";
-  protected $btInterfaceHeight = "300";
+  protected $btInterfaceHeight = "110";
 
   protected $btCacheBlockRecord = true;
   protected $btCacheBlockOutput = true;
@@ -38,10 +38,19 @@ class RegistrationAnywhereBlockController extends BlockController {
     $this->set('form', Loader::helper('form'));
     $u = new User();
     $this->set('u', $u);
-    
+    $up = new Permissions(Page::getCurrentPage());
+    $this->set('up', $up);
     $this->set('displayUserName', true);  
+    if(!$this->use_custom_form_title) {
+      $this->set('form_title', t(SITE . ' Registration'));
+    }
 	}
 
+  public function save($args) {
+    $args['show_logged_in'] = isset($args['show_logged_in']) ? 1 : 0;
+    $args['use_custom_form_title'] = isset($args['use_custom_form_title']) ? 1 : 0;
+    parent::save($args);
+  }
 	/* This is for anyone who wants to add the block 
 	/* in a theme from the global scrapbook
 	/* In the header before

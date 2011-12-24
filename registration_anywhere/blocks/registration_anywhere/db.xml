@@ -5,7 +5,14 @@
       <key />
       <unsigned />
     </field>
-    <field name="dummy" type="I">
-    </field>
+		<field name="show_logged_in" type="I1">
+			<default value="1" />
+		</field>
+		<field name="use_custom_form_title" type="I1">
+			<default value="0" />
+		</field>
+		<field name="form_title" type="C" size="255">
+			<default value="" />
+		</field>
   </table>
 </schema>

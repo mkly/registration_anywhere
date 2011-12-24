@@ -1,8 +1,7 @@
 <?php  defined('C5_EXECUTE') or die("Access Denied."); ?>
-<?php global $c; ?>
-<?php if((!$u->isLoggedIn() || $c->isEditMode()) && ENABLE_REGISTRATION): ?>
-<h2><?php echo t('Site Registration')?></h1>
-
+<?php if((!$u->isLoggedIn() || $up->canAdminPage()) && ENABLE_REGISTRATION): ?>
+<div class="registration-anywhere">
+<h2><?php echo t($form_title) ?></h2>
 <form id="registration-anywhere" name="registration-anywhere" method="post" action="<?php echo $this->url('/register', 'do_register')?>">
 
   <?php  if ($displayUserName) { ?>
@@ -57,4 +56,11 @@
   </div>
 
 </form>
+</div>
+<?php elseif($show_logged_in): ?>
+<div class="registration-anywhere">
+	<p>
+		<?php echo t('Logged in as') . ' ' . $u->getUserName() ?>
+	</p>
+</div>
 <?php endif; ?>
