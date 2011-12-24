@@ -15,7 +15,7 @@
 </script>
 <div class="ccm-block-field-group">
 <?php echo $form->checkbox('show_logged_in', 1, true) ?>
-<?php echo t('Show "Currently logged in as..."') ?>
+<?php echo t('Display "Currently logged in as..."') ?>
 <br />
 <br />
 <?php echo $form->checkbox('use_custom_form_title', 1, $use_custom_form_title) ?>

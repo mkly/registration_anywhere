@@ -6,3 +6,6 @@
   - Modified on_page_view() to suppress attribute form output
   - Added addRegistrationAnywhereHeaderItems() for use in
     themes that include block via global scrapbook
+1.2.1 Dec, 2011:
+  - Added option to set custom title
+  - Added option to show "Currently logged in as..."
