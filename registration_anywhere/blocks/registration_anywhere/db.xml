@@ -14,5 +14,36 @@
 		<field name="form_title" type="C" size="255">
 			<default value="" />
 		</field>
+		<field name="use_custom_logged_in_as" type="I1">
+			<default value="0" />
+		</field>
+		<field name="logged_in_as" type="C" size="255">
+			<default value="" />
+		</field>
+		<field name="use_user_attribute_key" type="I1">
+			<default value="0" />
+		</field>
+		<field name="user_attribute_key_id" type="I">
+			<default value="0" />
+		</field>
+		<field name="show_details_header" type="I1">
+			<default value="1" />
+		</field>
+		<field name="use_custom_details_header" type="I1">
+			<default value="0" />
+		</field>
+		<field name="details_header" type="C" size="255">
+			<default value="" />
+		</field>
+		<field name="show_options_header" type="I1">
+			<default value="1" />
+		</field>
+		<field name="use_custom_options_header" type="I1">
+			<default value="0" />
+		</field>
+		<field name="options_header" type="C" size="255">
+			<default value="" />
+		</field>
+
   </table>
 </schema>
