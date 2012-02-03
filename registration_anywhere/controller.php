@@ -5,7 +5,7 @@ class RegistrationAnywherePackage extends Package {
 
   protected $pkgHandle = 'registration_anywhere';
   protected $appVersionRequired = '5.4.1';
-  protected $pkgVersion = '1.2.1';
+  protected $pkgVersion = '1.2.4';
 
   public function getPackageDescription() {
     return t('Place a registration form anywhere on your site.');

@@ -10,9 +10,8 @@
 		<h2><?php echo t($form_title) ?></h2>
 		<form id="registration-anywhere" name="registration-anywhere" method="post" action="<?php echo $this->url('/register', 'do_register')?>">
 
-			<fieldset>
 				<?php if($show_details_header): ?>
-					<legend><?php echo $details_header ?></legend>
+					<h3><?php echo $details_header ?></h3>
 				<?php endif; ?>
 				<?php if ($display_username): ?>
  			  	<div>
@@ -47,39 +46,32 @@
  		  			<?php echo $form->password('uPasswordConfirm')?>
 					</div>
  		 		</div>
-			</fieldset>
 	
-			<fieldset>
-				<?php if($show_options_header): ?>
-					<legend><?php echo $options_header ?></legend>
-				<?php endif; ?>
-				<?php foreach($attributes as $attribute): ?>
-					<?php echo $aform->display($attribute, $attribute->isAttributeKeyRequiredOnRegister()); ?>
-				<?php endforeach; ?>
-			</fieldset> 
+			<?php if($show_options_header): ?>
+				<h3><?php echo $options_header ?></h3>
+			<?php endif; ?>
+			<?php foreach($attributes as $attribute): ?>
+				<?php echo $aform->display($attribute, $attribute->isAttributeKeyRequiredOnRegister()); ?>
+			<?php endforeach; ?>
 
 			<?php if($captcha_enabled): ?>
-				<fieldset>
-					<div class="clearfix">
-						<?php if($pre_55): ?>
-							<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
-						<?php else: ?>
-							<?php echo $captcha->label() ?>
-						<?php endif; ?>
-						<div>
-							<?php $captcha->showInput(); ?>
-						</div>
-						<?php $captcha->display(); ?>
+				<div>
+					<?php $captcha->display(); ?>
+					<?php if($pre_55): ?>
+						<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
+					<?php else: ?>
+						<?php echo $captcha->label() ?>
+					<?php endif; ?>
+					<div>
+						<?php $captcha->showInput(); ?>
 					</div>
-				</fieldset>
+				</div>
 			<?php endif; ?>
 
-			<fieldset>
-				<div class="actions">
-					<input id="register" class="primary btn ccm-input-submit" type="submit" value="<?php echo t('Register') ?> >" name="register" />
-					<?php echo $form->hidden('rcID', $rcID); ?>
-				</div>
-			</fieldset>
+			<div class="ccm-buttons">
+				<?php echo $form->submit('register', t('Register')) ?>
+				<?php echo $form->hidden('rcID', $rcID); ?>
+			</div>
 
 		</form>
 	</div>

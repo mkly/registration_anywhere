@@ -37,13 +37,13 @@
 			<?php endforeach; ?>
 
 			<?php if($captcha_enabled): ?>
+				<?php $captcha->display(); ?>	
 				<?php if($pre_55): ?>
 					<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
 				<?php else: ?>
 					<?php echo $captcha->label() ?>
 				<?php endif; ?>
 				<?php $captcha->showInput(); ?>
-				<?php $captcha->display(); ?>	
 			<?php endif; ?>
 
 			<?php echo $form->submit('register', t('Register') . ' >'); ?>
