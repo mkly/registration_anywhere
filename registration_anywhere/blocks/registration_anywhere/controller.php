@@ -5,7 +5,7 @@ class RegistrationAnywhereBlockController extends BlockController {
 
   protected $btTable = 'btRegistrationAnywhere';
   protected $btInterfaceWidth = "350";
-  protected $btInterfaceHeight = "400";
+  protected $btInterfaceHeight = "500";
 
   protected $btCacheBlockRecord = true;
   protected $btCacheBlockOutput = true;
@@ -35,21 +35,14 @@ class RegistrationAnywhereBlockController extends BlockController {
 	}
 
   public function view() {
-		$this->set('pre_55', version_compare(Config::get('SITE_APP_VERSION'), 5.5, 'lt'));
-
-		$form = Loader::helper('form');
-    $this->set('form', $form);
+    $this->set('form', Loader::helper('form'));
 		$this->set('aform', Loader::helper('form/attribute'));
-
-		$captcha = Loader::helper('validation/captcha');
-		$this->set('captcha', $captcha);
-
     $u = new User();
 		$up = new Permissions(Page::getCurrentPage());
 		if(!$u->isLoggedIn() || $up->canAdminPage()) {
 			$this->set('show_form', true);
 		}
-
+		$this->set('display_name', $u->getUserName());
 		if($u->isLoggedIn() && $this->use_user_attribute_key) {
 			loader::model('attribute/categories/user');
 			loader::model('user_info');
@@ -63,28 +56,23 @@ class RegistrationAnywhereBlockController extends BlockController {
 		} elseif ($u->isLoggedIn()) {
 			$this->set('display_name', $u->getUserName());
 		}
-
     $this->set('display_username_field', true);  
+    if(!$this->use_custom_form_title) {
+      $this->set('form_title', t(SITE . ' Registration'));
+		}
 		$this->load_attributes();
-		$this->set('captcha_enabled', ENABLE_REGISTRATION_CAPTCHA);
+		$this->set('captcha_enabled', ENABLE_REGISTRATION_CAPTCA);
+		$this->set('captcha', Loader::helper('validation/captcha'));
 		$this->set('show_registration_disabled', !ENABLE_REGISTRATION);
 
 		$this->set('registration_disabled_text', t('Registration Disabled.'));
 
-    if(!$this->use_custom_form_title) {
-      $this->set('form_title', t(SITE . ' Registration'));
-		}
-
 		if(!$this->use_custom_details_header) {
-			$this->set('details_header', t('Your Details'));
+			$this->set('details_header', 'Your Details');
 		}
 
 		if(!$this->use_custom_options_header) {
-			$this->set('options_header', t('Options'));
-		}
-
-		if(!$this->use_custom_logged_in_as) {
-			$this->set('logged_in_as', t('Logged in as'));
+			$this->set('options_header', 'Options');
 		}
 
 

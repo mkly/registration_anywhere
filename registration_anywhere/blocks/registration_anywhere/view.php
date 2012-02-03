@@ -9,7 +9,6 @@
 	<div class="registration-anywhere">
 		<h2><?php echo t($form_title) ?></h2>
 		<form id="registration-anywhere" name="registration-anywhere" method="post" action="<?php echo $this->url('/register', 'do_register')?>">
-
 			<fieldset>
 				<?php if($show_details_header): ?>
 					<legend><?php echo $details_header ?></legend>
@@ -57,19 +56,14 @@
 					<?php echo $aform->display($attribute, $attribute->isAttributeKeyRequiredOnRegister()); ?>
 				<?php endforeach; ?>
 			</fieldset> 
-
 			<?php if($captcha_enabled): ?>
 				<fieldset>
 					<div class="clearfix">
-						<?php if($pre_55): ?>
-							<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
-						<?php else: ?>
-							<?php echo $captcha->label() ?>
-						<?php endif; ?>
+						<?php echo $captcha->label() ?>
+						<?php $captcha->display(); ?>
 						<div>
 							<?php $captcha->showInput(); ?>
 						</div>
-						<?php $captcha->display(); ?>
 				</fieldset>
 			<?php endif; ?>
 
@@ -79,13 +73,12 @@
 					<?php echo $form->hidden('rcID', $rcID); ?>
 				</div>
 			</fieldset>
-
 		</form>
 	</div>
 <?php elseif($show_logged_in): ?>
 	<div class="registration-anywhere">
 		<p>
-			<?php echo $logged_in_as . ' ' . $display_name ?>
+			<?php echo t('Logged in as') . ' ' . $display_name ?>
 		</p>
 	</div>
 <?php endif; ?>
