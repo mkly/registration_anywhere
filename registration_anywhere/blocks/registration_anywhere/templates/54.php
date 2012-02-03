@@ -57,12 +57,12 @@
 			<?php if($captcha_enabled): ?>
 				<div>
 					<?php $captcha->display(); ?>
-					<?php if($pre_55): ?>
-						<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
-					<?php else: ?>
-						<?php echo $captcha->label() ?>
-					<?php endif; ?>
 					<div>
+						<?php if($pre_55): ?>
+							<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
+						<?php else: ?>
+							<?php echo $captcha->label() ?>
+						<?php endif; ?>
 						<?php $captcha->showInput(); ?>
 					</div>
 				</div>
