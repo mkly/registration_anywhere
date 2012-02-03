@@ -40,15 +40,26 @@
 				<?php endforeach; ?>
 			</fieldset>
 
-			<fieldset>
-				<?php echo $form->submit('register', t('Register') . ' >'); ?>
-			</fieldset>
+			<?php if($captcha_enabled): ?>
+				<fieldset>
+					<?php if($pre_55): ?>
+						<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
+					<?php else: ?>
+						<?php echo $captcha->label() ?>
+					<?php endif; ?>
+					<?php $captcha->showInput(); ?>
+					<?php $captcha->display(); ?>	
+				</fieldset>
+			<?php endif; ?>
+
+			<?php echo $form->submit('register', t('Register') . ' >'); ?>
+
 		</form>
 	</div>
 <?php elseif($show_logged_in): ?>
 	<div class="registration-anywhere">
 		<p>
-			<?php echo t('Logged in as') . ' ' . $display_name ?>
+			<?php echo $logged_in_as . ' ' . $display_name ?>
 		</p>
 	</div>
 <?php endif; ?>
