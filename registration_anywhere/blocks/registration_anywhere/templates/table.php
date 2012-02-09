@@ -80,6 +80,9 @@
 							</td>
 						</tr>
 					<?php endforeach; ?>
+					<tr>
+						<td colspan="2"><?php echo $form->submit('register', t('Register') . ' &gt;'); ?></td>
+					</tr>
 				</tbody>
 			</form>
 		</table>

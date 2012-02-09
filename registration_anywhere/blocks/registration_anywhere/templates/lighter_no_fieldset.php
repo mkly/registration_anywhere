@@ -46,7 +46,7 @@
 				<?php $captcha->showInput(); ?>
 			<?php endif; ?>
 
-			<?php echo $form->submit('register', t('Register') . ' >'); ?>
+			<?php echo $form->submit('register', t('Register') . ' &gt;'); ?>
 
 		</form>
 	</div>
