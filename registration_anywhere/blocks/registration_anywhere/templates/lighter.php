@@ -14,7 +14,7 @@
 				<?php if($show_details_header): ?>
 					<legend><?php echo $details_header ?></legend>
 				<?php endif; ?>
-				<?php if($display_username): ?>
+				<?php if($display_username_field): ?>
 					<?php echo $form->label('uName', t('Username') . '<span class="ccm-required">*</span>' ) ?>
 					<?php echo $form->text('uName') ?>
 				<?php endif; ?>

@@ -24,7 +24,7 @@
 							</td>
 						</tr>
 					<?php endif; ?>
-					<?php if($display_username): ?>
+					<?php if($display_username_field): ?>
 						<tr>
 							<td>
 								<?php echo $form->label('uName', t('Username') . '<pan class="ccm-required">*</span>' ) ?>
@@ -80,6 +80,24 @@
 							</td>
 						</tr>
 					<?php endforeach; ?>
+					<tr>
+						<td>
+							<?php if($pre_55): ?>
+								<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
+							<?php else: ?>
+								<?php echo $captcha->label() ?>
+							<?php endif; ?>
+						</td>
+						<td>
+							<?php $captcha->showInput(); ?>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<?php $captcha->display(); ?>
+						</td>
+					</tr>
 					<tr>
 						<td colspan="2"><?php echo $form->submit('register', t('Register') . ' &gt;'); ?></td>
 					</tr>

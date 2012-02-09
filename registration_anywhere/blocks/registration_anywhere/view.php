@@ -14,7 +14,7 @@
 				<?php if($show_details_header): ?>
 					<legend><?php echo $details_header ?></legend>
 				<?php endif; ?>
-				<?php if ($display_username): ?>
+				<?php if ($display_username_field): ?>
  			  	<div>
 						<?php echo $form->label('uName', t('Username') )?>
 						<span class="ccm-required">*</span>
@@ -67,9 +67,11 @@
 							<?php else: ?>
 								<?php echo $captcha->label() ?>
 							<?php endif; ?>
-							<?php $captcha->showInput(); ?>
 						</div>
-						<?php $captcha->display(); ?>
+						<?php $captcha->showInput(); ?>
+						<div>
+							<?php $captcha->display(); ?>
+						</div>
 					</div>
 				</fieldset>
 			<?php endif; ?>

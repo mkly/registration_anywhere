@@ -13,7 +13,7 @@
 			<?php if($show_details_header): ?>
 				<h3><?php echo $details_header ?></h3>
 			<?php endif; ?>
-			<?php if($display_username): ?>
+			<?php if($display_username_field): ?>
 				<?php echo $form->label('uName', t('Username') . '<span class="ccm-required">*</span>' ) ?>
 				<?php echo $form->text('uName') ?>
 			<?php endif; ?>
