@@ -1,4 +1,5 @@
 <?php defined('C5_EXECUTE') or die("Access Denied."); ?>
+<?php var_dump($show_form); ?>
 <?php if($show_registration_disabled): ?>
 	<div class="registration-anywhere">
 		<p>

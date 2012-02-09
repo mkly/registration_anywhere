@@ -8,9 +8,9 @@ class RegistrationAnywhereBlockController extends BlockController {
   protected $btInterfaceHeight = "400";
 
   protected $btCacheBlockRecord = true;
-  protected $btCacheBlockOutput = true;
+  protected $btCacheBlockOutput = false;
   protected $btCacheBlockOutputOnPost = false;
-  protected $btCacheBlockOutputForRegisteredUsers = true;
+  protected $btCacheBlockOutputForRegisteredUsers = false;
   protected $btCacheBlockOutputLifetime = 300;
 
   public function getBlockTypeDescription() {
