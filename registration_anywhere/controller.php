@@ -4,7 +4,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class RegistrationAnywherePackage extends Package {
 
   protected $pkgHandle = 'registration_anywhere';
-  protected $appVersionRequired = '5.4.1';
+  protected $appVersionRequired = '5.5';
   protected $pkgVersion = '1.2.5';
 
   public function getPackageDescription() {
