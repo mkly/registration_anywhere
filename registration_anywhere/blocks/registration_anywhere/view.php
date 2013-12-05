@@ -1,94 +1,90 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.") ?>
-<?php if($show_registration_disabled): ?>
+<?php if ($show_registration_disabled) { ?>
 	<div class="registration-anywhere">
 		<p>
-			<?php echo $registration_disabled_text ?>
+			<?= $registration_disabled_text ?>
 		</p>
 	</div>
-<?php elseif($show_form): ?>
+<?php } else if ($show_form) { ?>
 	<div class="registration-anywhere">
-		<h2><?php echo t($form_title) ?></h2>
-		<form id="registration-anywhere" name="registration-anywhere" method="post" action="<?php echo $this->url('/register', 'do_register')?>">
+		<h2><?= t($form_title) ?></h2>
+		<form id="registration-anywhere" name="registration-anywhere" method="post" action="<?= $this->url('/register', 'do_register')?>">
 
 			<fieldset>
-				<?php if($show_details_header): ?>
-					<legend><?php echo $details_header ?></legend>
-				<?php endif; ?>
-				<?php if ($display_username_field): ?>
- 			  	<div>
-						<?php echo $form->label('uName', t('Username') )?>
+				<?php if ($show_details_header) { ?>
+					<legend><?= $details_header ?></legend>
+				<?php } ?>
+				<?php if ($display_username_field) { ?>
+				<div>
+						<?= $form->label('uName', t('Username')) ?>
 						<span class="ccm-required">*</span>
 						<div class="input">
- 	   					<?php echo $form->text('uName')?>
+						<?=$form->text('uName') ?>
 						</div>
- 			   	</div>
-	 			<?php endif; ?>
-  
-				<div>
-					<?php echo $form->label('uEmail', t('Email Address') )?>
-					<span class="ccm-required">*</span>
-					<div class="input">
- 	  				<?php echo $form->text('uEmail')?>
-					</div>
- 	 			</div>
- 	 
- 	 			<div>
- 	 			 	<?php echo $form->label('uPassword', t('Password') )?>
-					<span class="ccm-required">*</span>
-					<div class="input">
- 	  				<?php echo $form->password('uPassword')?>
-					</div>
- 	 			</div>
+				</div>
+				<?php } ?>
 
 				<div>
-					<?php echo $form->label('uPasswordConfirm', t('Confirm Password') )?>
+					<?= $form->label('uEmail', t('Email Address')) ?>
 					<span class="ccm-required">*</span>
 					<div class="input">
- 		  			<?php echo $form->password('uPasswordConfirm')?>
+					<?= $form->text('uEmail') ?>
 					</div>
- 		 		</div>
+				</div>
+
+				<div>
+					<?= $form->label('uPassword', t('Password')) ?>
+					<span class="ccm-required">*</span>
+					<div class="input">
+					<?= $form->password('uPassword') ?>
+					</div>
+				</div>
+
+				<div>
+					<?= $form->label('uPasswordConfirm', t('Confirm Password')) ?>
+					<span class="ccm-required">*</span>
+					<div class="input">
+					<?= $form->password('uPasswordConfirm') ?>
+					</div>
+				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<?php if($show_options_header): ?>
-					<legend><?php echo $options_header ?></legend>
-				<?php endif; ?>
-				<?php foreach($attributes as $attribute): ?>
-					<?php echo $aform->display($attribute, $attribute->isAttributeKeyRequiredOnRegister()); ?>
-				<?php endforeach; ?>
+				<?php if ($show_options_header) { ?>
+					<legend><?= $options_header ?></legend>
+				<?php } ?>
+				<?php foreach ($attributes as $attribute) { ?>
+					<?= $aform->display($attribute, $attribute->isAttributeKeyRequiredOnRegister()) ?>
+				<?php } ?>
 			</fieldset> 
 
-			<?php if($captcha_enabled): ?>
+			<?php if ($captcha_enabled) { ?>
 				<fieldset>
 					<div class="clearfix">
 						<div>
-							<?php if($pre_55): ?>
-								<?php echo $form->label('captcha', t('Please type the letters and numbers shown in the image')); ?>
-							<?php else: ?>
-								<?php echo $captcha->label() ?>
-							<?php endif; ?>
+							<?php echo $captcha->label() ?>
 						</div>
-						<?php $captcha->showInput(); ?>
+						<?php $captcha->showInput() ?>
 						<div>
-							<?php $captcha->display(); ?>
+							<?php $captcha->display() ?>
 						</div>
 					</div>
 				</fieldset>
-			<?php endif; ?>
+			<?php } ?>
 
 			<fieldset>
 				<div class="actions">
-					<input id="register" class="primary btn ccm-input-submit" type="submit" value="<?php echo t('Register') ?> >" name="register" />
-					<?php echo $form->hidden('rcID', $rcID); ?>
+					<input id="register" class="primary btn ccm-input-submit" type="submit" value="<?= t('Register') ?> >" name="register" />
+					<?= $form->hidden('rcID', $rcID) ?>
 				</div>
 			</fieldset>
 
 		</form>
 	</div>
-<?php elseif($show_logged_in): ?>
+<?php }  else if ($show_logged_in) { ?>
 	<div class="registration-anywhere">
 		<p>
-			<?php echo $logged_in_as . ' ' . $display_name ?>
+			<?= $logged_in_as . ' ' . $display_name ?>
 		</p>
 	</div>
-<?php endif; ?>
+<?php } ?>
