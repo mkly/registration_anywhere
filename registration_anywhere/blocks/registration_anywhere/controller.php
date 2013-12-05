@@ -141,7 +141,6 @@ class RegistrationAnywhereBlockController extends BlockController {
 	}
 
 	protected function user_attribute_selector() {
-		loader::model('attribute/categories/user');
 		$registration_list = UserAttributeKey::getRegistrationList();
 		$options = array();
 		foreach($registration_list as $attrib) {
