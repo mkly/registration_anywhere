@@ -22,7 +22,6 @@ class RegistrationAnywhereBlockController extends BlockController {
   }
 
 	public function on_page_view() {
-		Loader::model('attribute/categories/user');
 		$attribs = UserAttributeKey::getRegistrationList();
 		// we need to suppress the form fields
 		// from printing
@@ -35,8 +34,6 @@ class RegistrationAnywhereBlockController extends BlockController {
 	}
 
   public function view() {
-		$this->set('pre_55', version_compare(Config::get('SITE_APP_VERSION'), 5.5, 'lt'));
-
 		$form = Loader::helper('form');
     $this->set('form', $form);
 		$this->set('aform', Loader::helper('form/attribute'));
@@ -51,8 +48,6 @@ class RegistrationAnywhereBlockController extends BlockController {
 		}
 
 		if($u->isLoggedIn() && $this->use_user_attribute_key) {
-			loader::model('attribute/categories/user');
-			loader::model('user_info');
 			$ui = UserInfo::getByID($u->getUserID());
 			$ak = UserAttributeKey::getByID($this->user_attribute_key_id);
 			if($ak) {
@@ -128,7 +123,6 @@ class RegistrationAnywhereBlockController extends BlockController {
 	}
 
 	protected function load_attributes() {
-		Loader::model('attribute/categories/user');
 		$attributes = UserAttributeKey::getRegistrationList();
 		$this->set('attributes', $attributes);
 
