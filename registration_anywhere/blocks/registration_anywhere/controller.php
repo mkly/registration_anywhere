@@ -3,23 +3,23 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 class RegistrationAnywhereBlockController extends BlockController {
 
-  protected $btTable = 'btRegistrationAnywhere';
-  protected $btInterfaceWidth = "350";
-  protected $btInterfaceHeight = "400";
+	protected $btTable = 'btRegistrationAnywhere';
+	protected $btInterfaceWidth = "350";
+	protected $btInterfaceHeight = "400";
 
-  protected $btCacheBlockRecord = true;
-  protected $btCacheBlockOutput = false;
-  protected $btCacheBlockOutputOnPost = false;
-  protected $btCacheBlockOutputForRegisteredUsers = false;
-  protected $btCacheBlockOutputLifetime = 300;
+	protected $btCacheBlockRecord = true;
+	protected $btCacheBlockOutput = false;
+	protected $btCacheBlockOutputOnPost = false;
+	protected $btCacheBlockOutputForRegisteredUsers = false;
+	protected $btCacheBlockOutputLifetime = 300;
 
-  public function getBlockTypeDescription() {
-    return t('Place a registration form anywhere on you site');
-  }
+	public function getBlockTypeDescription() {
+		return t('Place a registration form anywhere on you site');
+	}
 
-  public function getBlockTypeName() {
-    return t('Registration Anywhere');
-  }
+	public function getBlockTypeName() {
+		return t('Registration Anywhere');
+	}
 
 	public function on_page_view() {
 		$attribs = UserAttributeKey::getRegistrationList();
@@ -27,21 +27,20 @@ class RegistrationAnywhereBlockController extends BlockController {
 		// from printing
 		ob_start();
 		foreach($attribs as $ak) {
-			$akc = $ak->getController();
-			$akc->form();
+			$akc = $ak->getController()->form();
 		}
 		ob_end_clean();
 	}
 
-  public function view() {
+	public function view() {
 		$form = Loader::helper('form');
-    $this->set('form', $form);
+		$this->set('form', $form);
 		$this->set('aform', Loader::helper('form/attribute'));
 
 		$captcha = Loader::helper('validation/captcha');
 		$this->set('captcha', $captcha);
 
-    $u = new User();
+		$u = new User();
 		$up = new Permissions(Page::getCurrentPage());
 		if(!$u->isLoggedIn() || $up->canAdminPage()) {
 			$this->set('show_form', true);
@@ -59,15 +58,15 @@ class RegistrationAnywhereBlockController extends BlockController {
 			$this->set('display_name', $u->getUserName());
 		}
 
-    $this->set('display_username_field', true);  
+		$this->set('display_username_field', true);  
 		$this->load_attributes();
 		$this->set('captcha_enabled', ENABLE_REGISTRATION_CAPTCHA);
 		$this->set('show_registration_disabled', !ENABLE_REGISTRATION);
 
 		$this->set('registration_disabled_text', t('Registration Disabled.'));
 
-    if(!$this->use_custom_form_title) {
-      $this->set('form_title', t(SITE . ' Registration'));
+		if(!$this->use_custom_form_title) {
+			$this->set('form_title', t(SITE . ' Registration'));
 		}
 
 		if(!$this->use_custom_details_header) {
@@ -93,8 +92,8 @@ class RegistrationAnywhereBlockController extends BlockController {
 		$this->set('user_attribute_selector', $this->user_attribute_selector());
 	}
 
-  public function save($args) {
-    $args['show_logged_in'] = isset($args['show_logged_in']) ? 1 : 0;
+	public function save($args) {
+		$args['show_logged_in'] = isset($args['show_logged_in']) ? 1 : 0;
 		$args['use_custom_form_title'] = isset($args['use_custom_form_title']) ? 1 : 0;
 		$args['use_custom_logged_in_as'] = isset($args['use_custom_logged_in_as']) ? 1 : 0;
 		$args['use_user_attribute_key'] = isset($args['use_user_attribute_key']) ? 1 : 0;
@@ -102,8 +101,8 @@ class RegistrationAnywhereBlockController extends BlockController {
 		$args['use_custom_details_header'] = isset($args['use_custom_details_header']) ? 1 : 0;
 		$args['show_options_header'] = isset($args['show_options_header']) ? 1 : 0;
 		$args['use_custom_options_header'] = isset($args['use_custom_options_header']) ? 1 : 0;
-    parent::save($args);
-  }
+		parent::save($args);
+	}
 	/**
 	 * This is for anyone who wants to add the block 
 	 * in a theme from the global scrapbook
@@ -111,9 +110,9 @@ class RegistrationAnywhereBlockController extends BlockController {
 	 * Loader::element('header_required')
 	 * add this
 	 * <?php
-	 *   $bl = Block:getByName("Global SB Block Name");
-	 *   if(is_object($bl)) $bl->getController()
-	 *     ->addRegistrationAnywhereHeaderItems();
+	 *	 $bl = Block:getByName("Global SB Block Name");
+	 *	 if(is_object($bl)) $bl->getController()
+	 *		 ->addRegistrationAnywhereHeaderItems();
 	 * ?>
 	 */
 	public function addRegistrationAnywhereHeaderItems() {
@@ -149,6 +148,6 @@ class RegistrationAnywhereBlockController extends BlockController {
 			$options[$attrib->getAttributeKeyID()] = $attrib->getAttributeKeyName();
 		}
 		return $options;
-	}	
+	} 
 
 }
