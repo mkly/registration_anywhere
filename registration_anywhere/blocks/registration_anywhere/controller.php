@@ -104,16 +104,17 @@ class RegistrationAnywhereBlockController extends BlockController {
 		$args['use_custom_options_header'] = isset($args['use_custom_options_header']) ? 1 : 0;
     parent::save($args);
   }
-	/* This is for anyone who wants to add the block 
-	/* in a theme from the global scrapbook
-	/* In the header before
-	/* Loader::element('header_required')
-	/* add this
-	/* <?php
-	/*   $bl = Block:getByName("Global SB Block Name");
-	/*   if(is_object($bl)) $bl->getController()
-	/*     ->addRegistrationAnywhereHeaderItems();
-	/* ?>
+	/**
+	 * This is for anyone who wants to add the block 
+	 * in a theme from the global scrapbook
+	 * In the header before
+	 * Loader::element('header_required')
+	 * add this
+	 * <?php
+	 *   $bl = Block:getByName("Global SB Block Name");
+	 *   if(is_object($bl)) $bl->getController()
+	 *     ->addRegistrationAnywhereHeaderItems();
+	 * ?>
 	 */
 	public function addRegistrationAnywhereHeaderItems() {
 		// This is so that if on_page_view ever needs
@@ -151,5 +152,3 @@ class RegistrationAnywhereBlockController extends BlockController {
 	}	
 
 }
-  
-?>
