@@ -86,7 +86,7 @@ class RegistrationAnywhereBlockController extends BlockController {
 	}
 
 	public function add() {
-		$this->set('user_attribute_selector', $this->user_attribute_selector());
+		$this->edit();
 	}
 
 	public function edit() {

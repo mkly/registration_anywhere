@@ -16,10 +16,7 @@ class RegistrationAnywherePackage extends Package {
   }
 
   public function install() {
-    $pkg = parent::install();
-
-    BlockType::InstallBlockTypeFromPackage('registration_anywhere', $pkg);
+    BlockType::InstallBlockTypeFromPackage('registration_anywhere', parent::install());
   }
 
 }
-?>
