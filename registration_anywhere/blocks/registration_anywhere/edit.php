@@ -20,7 +20,7 @@
 
 <fieldset class="well well-small">
 <div id="use_custom_form_title_wrap">
-	<label for="use_custom_form_title" class="top-level"
+	<label for="use_custom_form_title" class="top-level">
 		<?= $form->checkbox('use_custom_form_title', 1, $use_custom_form_title) ?> <?= t('Use Custom Title') ?>
 	</label>
 </div>
@@ -81,7 +81,7 @@
 	</label>
 </div>
 <div class="sub-section">
-	<div id="use_custom_options_header_wrap">
+	<div id="use_custom_options_header_wrap">	
 		<label for="use_custom_options_header">
 			<?= $form->checkbox('use_custom_options_header', 1, $use_custom_options_header) ?> <?= t('Use Custom Options header') ?>
 		</label>
