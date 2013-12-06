@@ -4,8 +4,9 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class RegistrationAnywhereBlockController extends BlockController {
 
 	protected $btTable = 'btRegistrationAnywhere';
-	protected $btInterfaceWidth = "350";
-	protected $btInterfaceHeight = "400";
+	protected $btInterfaceWidth = '350';
+	protected $btInterfaceHeight = '400';
+	protected $btWrapperClass = 'ccm-ui';
 
 	protected $btCacheBlockRecord = true;
 	protected $btCacheBlockOutput = false;
