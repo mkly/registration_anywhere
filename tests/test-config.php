@@ -4,5 +4,6 @@ $config = array(
 	'db-username' => 'travis',
 	'db-database' => 'test',
 	'admin-password' => 'password',
-	'target' => dirname(__FILE__) . '/core/concrete5/web'
+	'target' => dirname(__FILE__) . '/core/concrete5/web',
+	'starting-point' => 'registration_anywhere'
 );
