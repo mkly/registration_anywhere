@@ -1,0 +1,13 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+
+install:
+  - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - mysql -e 'create database tests;'
+  - mkdir ./tests/core
+  - git clone https://github.com/concrete5/concrete5.git ./tests/core/
+  - cp ./tests/install ./tests/core/concrete5/web/config/
+  - ./tests/install-concrete5.php --config="test-config.php"

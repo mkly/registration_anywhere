@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/[mkly]/[registration\_anywhere].png)](https://travis-ci.org/[mkly]/[registration\_anywhere])
+
 Registration Anywhere
 =====================
 A concrete5 addon to place a registration form as a block anywhere on your site.
