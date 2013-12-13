@@ -17,7 +17,7 @@ Display the block in your theme as you normally would
 
 ```php
 $bl = Block::getByName("Global SB Block Name");
-if(is_object($bl)) $bl--->display();
+$bl->display();
 ```
 
 But then you need to add something else before
