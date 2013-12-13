@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/[mkly]/[registration\_anywhere].png)](https://travis-ci.org/[mkly]/[registration\_anywhere])
+[![Build Status](https://travis-ci.org/mkly/registration\_anywhere.png)](https://travis-ci.org/mkly/registration\_anywhere)
 
 Registration Anywhere
 =====================
