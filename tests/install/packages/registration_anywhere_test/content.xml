@@ -1,5 +1,5 @@
 <concrete5-cif version="1.0">
   <packages>
-    <package handle="registration_anywhere"></package>
+    <package handle="registration_anywhere"/>
   </packages>
 </concrete5-cif>
